@@ -1,0 +1,8 @@
+--SHOW THE COUNTRY WHO HAS 2 MOVIES AND 1 TVSHOW 
+SELECT country 
+FROM netflix_titles 
+GROUP BY country 
+HAVING 
+SUM(CASE WHEN type='Movie' THEN 1 ELSE 0 END) >=2
+AND
+SUM(CASE WHEN type='TV Show' THEN 1 ELSE 0 END)>=1;
